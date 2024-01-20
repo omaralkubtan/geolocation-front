@@ -1,0 +1,103 @@
+<div class="wrapper">
+  <div
+    class="page-header section-dark"
+    style="background-image: url('assets/img/antoine-barres.jpg')"
+  >
+    <div class="filter"></div>
+    <div class="content-center" style="z-index: 2">
+      <div class="container">
+        <div class="title-brand">
+          <div class="fog-low">
+            <img src="assets/img/fog-low.png" alt="" />
+          </div>
+          <div class="fog-low right">
+            <img src="assets/img/fog-low.png" alt="" />
+          </div>
+        </div>
+
+        <div class="form-location card card-register">
+          <h3 class="title">Welcome</h3>
+          <form class="register-form">
+            <label>address</label>
+            <div
+              class="input-group form-group-no-border"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="address"
+                placeholder="address"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+            <button
+              class="btn btn-danger btn-block btn-round"
+              (click)="searchLocation()"
+            >
+              search
+            </button>
+            <div *ngIf="data">
+              <div>name: {{ data?.name }} placeId :{{ data?.placeId }}</div>
+              <div>displayName: {{ data?.displayName }}</div>
+              <div>
+                omsType: {{ data?.omsType }} placeRank :{{ data?.placeRank }}
+              </div>
+              <div>
+                type: {{ data?.type }} addressType :{{ data?.addressType }}
+              </div>
+              <div>
+                addressClass: {{ data?.addressClass }} omsType :{{
+                  data?.omsType
+                }}
+              </div>
+              <div>
+                addressClass: {{ data?.addressClass }} omsType :{{
+                  data?.omsType
+                }}
+              </div>
+              <div>
+                latitude: {{ data?.latitude }} longitude :{{ data?.longitude }}
+              </div>
+            </div>
+            <div style="color: #000">
+              ______________________________________
+            </div>
+
+            <label>Email</label>
+            <div
+              class="input-group form-group-no-border"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-email-85"></i>
+                </span>
+              </div>
+              <input
+                type="email"
+                [(ngModel)]="email"
+                class="form-control"
+                placeholder="Email"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+            </div>
+            <button
+              class="btn btn-danger btn-block btn-round"
+              (click)="sendToEmail()"
+            >
+              send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="moving-clouds"
+      style="background-image: url('assets/img/clouds.png')"
+    ></div>
+  </div>
+  <!-- the end  -->
+</div>
